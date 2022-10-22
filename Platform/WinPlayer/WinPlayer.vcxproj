@@ -72,7 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)Configs;$(ProjectDir)Scripts;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)Configs;$(ProjectDir)Scripts;$(ProjectDir)../../Runtime;$(ProjectDir)../Win32Common;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -94,7 +94,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -146,18 +146,27 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Win32Common\BaseWindow.cpp" />
+    <ClCompile Include="..\Win32Common\DoubleBufferedWindow.cpp" />
     <ClCompile Include="..\Win32Common\EventDispatcher.cpp" />
+    <ClCompile Include="..\Win32Common\MainWindow.cpp" />
     <ClCompile Include="..\Win32Common\RenderWindow.cpp" />
     <ClCompile Include="Configs\Config.cpp" />
     <ClCompile Include="Scripts\EntryProxy.cpp" />
     <ClCompile Include="Scripts\WinMain.cpp" />
+    <ClCompile Include="Scripts\WinPlayerMainWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Runtime\Math\Rect.h" />
+    <ClInclude Include="..\..\Runtime\RuntimePrefix.h" />
+    <ClInclude Include="..\..\Runtime\Utils\LinkedList.h" />
     <ClInclude Include="..\Win32Common\BaseWindow.h" />
+    <ClInclude Include="..\Win32Common\DoubleBufferedWindow.h" />
     <ClInclude Include="..\Win32Common\EventDispatcher.h" />
+    <ClInclude Include="..\Win32Common\MainWindow.h" />
     <ClInclude Include="..\Win32Common\RenderWindow.h" />
     <ClInclude Include="Configs\Config.h" />
+    <ClInclude Include="Scripts\EntryProxy.h" />
+    <ClInclude Include="Scripts\WinPlayerMainWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

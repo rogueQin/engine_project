@@ -28,6 +28,9 @@
     <Filter Include="Runtime\Math">
       <UniqueIdentifier>{4074b534-fcad-4d72-b784-9b2f3c7bdecf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Runtime\Utils">
+      <UniqueIdentifier>{a0472d7e-c4ac-4117-bbbd-361e467e179a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Configs\Config.cpp">
@@ -48,6 +51,15 @@
     <ClCompile Include="..\Win32Common\RenderWindow.cpp">
       <Filter>Common</Filter>
     </ClCompile>
+    <ClCompile Include="..\Win32Common\DoubleBufferedWindow.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Win32Common\MainWindow.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\WinPlayerMainWindow.cpp">
+      <Filter>Entry</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Configs\Config.h">
@@ -64,6 +76,24 @@
     </ClInclude>
     <ClInclude Include="..\..\Runtime\Math\Rect.h">
       <Filter>Runtime\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Runtime\RuntimePrefix.h">
+      <Filter>Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Runtime\Utils\LinkedList.h">
+      <Filter>Runtime\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\EntryProxy.h">
+      <Filter>Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Win32Common\DoubleBufferedWindow.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Win32Common\MainWindow.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\WinPlayerMainWindow.h">
+      <Filter>Entry</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
