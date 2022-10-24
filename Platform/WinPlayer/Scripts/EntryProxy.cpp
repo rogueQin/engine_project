@@ -18,33 +18,35 @@ void EntryProxy::MessageLoop()
 	std::vector<MSG> msg_seq;
 	bool isQuit = false;
 
-
-	while (PeekMessage(&msg, 0, 0, 0, PM_REMOVE))
+	while (msg.message != WM_QUIT) 
 	{
-		if (msg.message == WM_KEYDOWN || msg.message == WM_KEYUP)
+		//if (PeekMessage(&msg, 0, 0, 0, PM_REMOVE)) 
+		//{
+		//	if (msg.message == WM_KEYDOWN || msg.message == WM_KEYUP)
+		//	{
+		//		ProcessMessage(msg);
+		//	}
+		//	else
+		//	{
+		//		msg_seq.push_back(msg);
+		//	}
+
+		//	if (msg_seq.size() >= 100)
+		//	{
+		//		for (int i = 0; i < msg_seq.size(); i++)
+		//		{
+		//			ProcessMessage(msg_seq[i]);
+		//		}
+		//		msg_seq.clear();
+		//	}
+		//}
+		if (PeekMessage(&msg, 0, 0, 0, PM_REMOVE)) 
 		{
 			ProcessMessage(msg);
 		}
-		else
-		{
-			msg_seq.push_back(msg);
-		}
-
-		if (msg_seq.size() >= 100)
-		{
-			for (int i = 0; i < msg_seq.size(); i++)
-			{
-				ProcessMessage(msg_seq[i]);
-			}
-			msg_seq.clear();
-		}
-
-		if (msg.message == WM_QUIT)
-		{
-			msg_seq.clear();
-			break;
-		}
 	}
+
+	msg_seq.clear();
 }
 
 void EntryProxy::StartEngine(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nShowCmd)
@@ -54,5 +56,7 @@ void EntryProxy::StartEngine(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevI
 	gMainWindow->Init();
 	gMainWindow->Show(true);
 	//gMainWindow->SetWindowSize();
+
+	MessageLoop();
 }
 
